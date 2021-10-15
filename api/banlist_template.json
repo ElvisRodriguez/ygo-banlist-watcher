@@ -1,0 +1,22 @@
+{
+    "forbidden": {
+        "monsters": [],
+        "spells": [],
+        "traps": []
+    },
+    "limited": {
+        "monsters": [],
+        "spells": [],
+        "traps": []
+    },
+    "semi-limited": {
+        "monsters": [],
+        "spells": [],
+        "traps": []
+    },
+    "no longer on list": {
+        "monsters": [],
+        "spells": [],
+        "traps": []
+    }
+}
