@@ -1,0 +1,36 @@
+{
+    "forbidden": {
+        "monsters": [],
+        "spells": [
+            "Zoodiac Barrage"
+        ],
+        "traps": []
+    },
+    "limited": {
+        "monsters": [
+            "Eva",
+            "Prank-Kids Meow-Meow-Mu"
+        ],
+        "spells": [
+            "Fire Formation - Tenki"
+        ],
+        "traps": []
+    },
+    "semi-limited": {
+        "monsters": [
+            "Danger! Nessie!",
+            "Performapal Skullcrobat Joker"
+        ],
+        "spells": [
+            "Emergency Teleport"
+        ],
+        "traps": []
+    },
+    "no longer on list": {
+        "monsters": [
+            "Double Iris Magician"
+        ],
+        "spells": [],
+        "traps": []
+    }
+}

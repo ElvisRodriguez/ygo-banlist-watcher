@@ -1,4 +1,5 @@
 import json
+import unicodedata
 
 from bs4 import BeautifulSoup
 from dotenv import dotenv_values
@@ -51,22 +52,40 @@ def parse_card_type(card_type):
     parsed_card_type = f"{lowercase_card_type}s"
     return parsed_card_type
 
-def process_cards(cards):
+def is_new_list_change(raw_card_data):
+    """
+
+    Args:
+        raw_card_data ([type]): [description]
+    """
+    card_data = list(map(
+        lambda data: unicodedata.normalize("NFC", data), raw_card_data))
+    if len(card_data[-1].strip()) != 0:
+        return True
+    return False
+
+def process_cards(cards, short_list=False):
     """Processes each <tr> tag's children and extracts relevant card data.
 
     Args:
         cards (list iterator): All <tr> tags scraped from official YuGiOh page.
+        short_list (bool): Flag; process only cards whose list status changed.
     Returns:
-        banlist(dict): Current YuGiOh F&L list in JSON format.
+        banlist(dict): Current Yu-Gi-Oh F&L list in JSON format.
     """
     with open(CONFIG["TEMPLATE"], 'r') as banlist_template:
         banlist = json.load(banlist_template)
     for card in cards:
-        card_type, card_name, status, *other = [td.text for td in card.findAll("td")]
+        card_type, card_name, status, *other = [
+            td.text for td in card.findAll("td")]
         status = status.lower()
         card_type = parse_card_type(card_type)
         card_name = parse_card_name(card_name)
-        banlist[status][card_type].append(card_name)
+        if short_list:
+            if is_new_list_change(other):
+                banlist[status][card_type].append(card_name)
+        else:
+            banlist[status][card_type].append(card_name)
     return banlist
 
 
@@ -75,3 +94,6 @@ if __name__ == "__main__":
     banlist = process_cards(cards)
     with open("banlist.json", 'w') as _banlist:
         json.dump(banlist, _banlist, indent=4)
+    short_banlist = process_cards(cards, short_list=True)
+    with open("short_banlist.json", 'w') as short_list:
+        json.dump(short_banlist, short_list, indent=4)
