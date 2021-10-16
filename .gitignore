@@ -4,3 +4,6 @@ include/
 lib/
 lib64
 pyvenv.cfg
+
+# Folders:
+__pycache__
