@@ -6,7 +6,9 @@ from dotenv import dotenv_values
 from path_resolver import get_full_path
 from scraper import BanlistScraper
 
+
 CONFIG = dotenv_values(get_full_path(__file__, ".env"))
+
 
 def parse_card_name(card_name):
     """Remove unecessary whitespace and uppercasing from card's name.
@@ -17,7 +19,7 @@ def parse_card_name(card_name):
         parsed_card_name (str): Parsed or "prettified" card name.
     """
     raw_words = card_name.lower().split(' ')
-    non_empty_words = list(filter(lambda word: word != "", raw_words))
+    non_empty_words = list(filter(lambda word: word != '', raw_words))
     parsed_card_name = ' '.join([word.title() for word in non_empty_words])
     return parsed_card_name 
 
@@ -62,12 +64,15 @@ def is_new_list_change(raw_card_data):
     Args:
         raw_card_data (list: str): Unused columns extracted from page table.
     Returns:
-        (bool): True only if the last table column has one of these remarks:
-            - "New", "Was Forbidden", "Was Limited", "Was Semi-Limited"
+        (bool): True only if the last table column has a non empty remark (str).
     """
     card_data = list(map(
         lambda data: unicodedata.normalize("NFC", data), raw_card_data))
-    return len(card_data[-1].strip()) != 0
+    # Empty remarks are variable length strings consisting only of spaces.
+    remark = card_data[-1].strip()
+    # If the remark is not stripped down to an empty string, it's a new change.
+    new_list_change = len(remark) != 0
+    return new_list_change
 
 
 def process_cards(cards, short_list=False):
