@@ -7,3 +7,6 @@ pyvenv.cfg
 
 # Folders:
 __pycache__
+
+# Files:
+.env.secret
