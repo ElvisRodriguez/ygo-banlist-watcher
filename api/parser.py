@@ -42,7 +42,7 @@ def parse_card_type(card_type):
 
 
 def parse_update_text(update_text):
-    """Extracts date from update text
+    """Extracts the date from update_text.
 
     Args:
         update_text (str): Text of the form "UPDATED: MM/DD/YYYY".
@@ -101,16 +101,24 @@ def process_cards(cards, short_list=False):
     return banlist
 
 
+def save_banlist_data(banlist_data, banlist_file):
+    """Save current banlist to JSON file.
+
+    Args:
+        banlist_data (dict): Current Yu-Gi-Oh F&L list in JSON format.
+        banlist_file (str): Name of JSON file to store banlist data.
+    Returns:
+        None.
+    """
+    banlist_file_path = get_full_path(__file__, banlist_file)
+    with open(banlist_file_path, 'w') as file:
+        json.dump(banlist_data, file, indent=4)
+
+
 if __name__ == "__main__":
     banlist_scraper = BanlistScraper()
-    update_text = banlist_scraper.get_update_text()
-    update_date = parse_update_text(update_text)
     cards = banlist_scraper.get_card_data()
     banlist = process_cards(cards)
-    banlist_path = get_full_path(__file__, "banlist.json")
-    with open(banlist_path, 'w') as _banlist:
-        json.dump(banlist, _banlist, indent=4)
     short_banlist = process_cards(cards, short_list=True)
-    shortlist_path = get_full_path(__file__, "short_banlist.json")
-    with open(shortlist_path, 'w') as short_list:
-        json.dump(short_banlist, short_list, indent=4)
+    save_banlist_data(banlist, "banlist.json")
+    save_banlist_data(short_banlist, "short_banlist.json")
