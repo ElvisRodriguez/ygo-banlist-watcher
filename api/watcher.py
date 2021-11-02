@@ -1,8 +1,10 @@
 from datetime import datetime
+import time
 
 import parser
 from scraper import BanlistScraper
 
+SECONDS = 10
 
 def is_banlist_updated(banlist_scraper):
     """Check if the banlist was updated today.
@@ -20,5 +22,19 @@ def is_banlist_updated(banlist_scraper):
 
 
 if __name__ == "__main__":
-    banlist_scraper = BanlistScraper()
-    print(is_banlist_updated(banlist_scraper))
+    while True:
+        print("Scraping Yu-Gi-Oh official F&L list page...")
+        banlist_scraper = BanlistScraper()
+        if is_banlist_updated(banlist_scraper):
+            print("Banlist update detected!")
+            cards = banlist_scraper.get_card_data()
+            print("Processing cards...")
+            banlist = parser.process_cards(cards)
+            short_banlist = parser.process_cards(cards, short_list=True)
+            print("Saving banlist data...")
+            parser.save_banlist_data(banlist, "banlist.json")
+            parser.save_banlist_data(short_banlist, "short_banlist.json")
+            break
+        else:
+            print(f"No updates detected. Sleeping for {SECONDS} seconds")
+        time.sleep(SECONDS)
