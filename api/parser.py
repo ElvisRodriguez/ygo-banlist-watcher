@@ -113,12 +113,3 @@ def save_banlist_data(banlist_data, banlist_file):
     banlist_file_path = get_full_path(__file__, banlist_file)
     with open(banlist_file_path, 'w') as file:
         json.dump(banlist_data, file, indent=4)
-
-
-if __name__ == "__main__":
-    banlist_scraper = BanlistScraper()
-    cards = banlist_scraper.get_card_data()
-    banlist = process_cards(cards)
-    short_banlist = process_cards(cards, short_list=True)
-    save_banlist_data(banlist, "banlist.json")
-    save_banlist_data(short_banlist, "short_banlist.json")
