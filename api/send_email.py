@@ -30,7 +30,3 @@ def send_email(recepient):
         "smtp.gmail.com", CONFIG["SSL_PORT"], context=context) as server:
         server.login(CONFIG["CRON_EMAIL"], CONFIG["CRON_PASSWORD"])
         server.sendmail(CONFIG["CRON_EMAIL"], recepient, message.as_string())
-
-
-if __name__ == "__main__":
-    send_email("elvisrodriguez1992@gmail.com")
