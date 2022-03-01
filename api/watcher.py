@@ -1,13 +1,19 @@
-from datetime import datetime
+from os import set_blocking
 import time
 
+from dotenv import dotenv_values, set_key
+
 import parser
+from path_resolver import get_full_path
 from scraper import BanlistScraper
 
-SECONDS = 10
+
+CONFIG = dotenv_values(get_full_path(__file__, ".env"))
+SECONDS = 300
+
 
 def is_banlist_updated(banlist_scraper):
-    """Check if the banlist was updated today.
+    """Checks if the banlist was updated and saves the date if so.
 
     Args:
         banlist_scraper(BanlistScraper):
@@ -17,8 +23,13 @@ def is_banlist_updated(banlist_scraper):
     """
     update_text = banlist_scraper.get_update_text()
     last_banlist_update = parser.parse_update_text(update_text)
-    current_date = str(datetime.date(datetime.today()))
-    return current_date == last_banlist_update
+    if CONFIG["LAST_BANLIST_DATE"] != last_banlist_update:
+        set_key(
+            get_full_path(__file__, ".env"),
+            "LAST_BANLIST_DATE",
+            last_banlist_update)
+        return True
+    return False
 
 
 if __name__ == "__main__":
@@ -34,6 +45,7 @@ if __name__ == "__main__":
             print("Saving banlist data...")
             parser.save_banlist_data(banlist, "banlist.json")
             parser.save_banlist_data(short_banlist, "short_banlist.json")
+            print("Banlist data Saved!")
             break
         else:
             print(f"No updates detected. Sleeping for {SECONDS} seconds")
