@@ -1,36 +1,52 @@
 {
     "forbidden": {
-        "monsters": [],
-        "spells": [
-            "Zoodiac Barrage"
+        "monsters": [
+            "Archnemeses Protos",
+            "Eva",
+            "Simorgh, Bird Of Sovereignty"
         ],
-        "traps": []
+        "spells": [],
+        "traps": [
+            "Imperial Order"
+        ]
     },
     "limited": {
         "monsters": [
-            "Eva",
-            "Prank-Kids Meow-Meow-Mu"
+            "Astrograph Sorcerer",
+            "Destrudo The Lost Dragon'S Frisson",
+            "Fairy Tail - Snow",
+            "Lunalight Tiger",
+            "Lyrilusc - Recital Starling"
         ],
         "spells": [
-            "Fire Formation - Tenki"
+            "Monster Gate",
+            "Pot Of Desires"
         ],
         "traps": []
     },
     "semi-limited": {
-        "monsters": [
-            "Danger! Nessie!",
-            "Performapal Skullcrobat Joker"
-        ],
+        "monsters": [],
         "spells": [
-            "Emergency Teleport"
+            "A Hero Lives",
+            "Fusion Destiny",
+            "Nadir Servant",
+            "Salamangreat Circle",
+            "Scapegoat"
         ],
         "traps": []
     },
     "no longer on list": {
         "monsters": [
-            "Double Iris Magician"
+            "Danger! Nessie!",
+            "Performapal Skullcrobat Joker",
+            "Red-Eyes Darkness Metal Dragon"
         ],
-        "spells": [],
-        "traps": []
+        "spells": [
+            "Emergency Teleport",
+            "Raigeki"
+        ],
+        "traps": [
+            "Skill Drain"
+        ]
     }
 }

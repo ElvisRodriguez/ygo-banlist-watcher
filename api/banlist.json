@@ -1,24 +1,22 @@
 {
     "forbidden": {
         "monsters": [
-            "Astrograph Sorcerer",
+            "Archnemeses Protos",
             "Blackwing - Gofu The Vague Shadow",
             "Blackwing - Steam The Cloak",
             "Blaster, Dragon Ruler Of Infernos",
             "Block Dragon",
             "Cyber Jar",
             "Dandylion",
-            "Destrudo The Lost Dragon'S Frisson",
             "Djinn Releaser Of Rituals",
             "Eclipse Wyvern",
-            "Fairy Tail - Snow",
+            "Eva",
             "Fiber Jar",
             "Fishborg Blaster",
             "Glow-Up Bulb",
             "Grinder Golem",
             "Jet Synchron",
             "Level Eater",
-            "Lunalight Tiger",
             "Magical Scientist",
             "Majespecter Unicorn - Kirin",
             "Master Peace, The True Dracoslaying King",
@@ -46,6 +44,7 @@
             "Knightmare Goblin",
             "Knightmare Mermaid",
             "Linkross",
+            "Simorgh, Bird Of Sovereignty",
             "Summon Sorceress",
             "Topologic Gumblar Dragon",
             "Union Carrier",
@@ -97,6 +96,7 @@
             "Zoodiac Barrage"
         ],
         "traps": [
+            "Imperial Order",
             "Last Turn",
             "Return From The Different Dimension",
             "Royal Oppression",
@@ -115,22 +115,24 @@
             "Right Arm Of The Forbidden One",
             "Right Leg Of The Forbidden One",
             "Armageddon Knight",
+            "Astrograph Sorcerer",
             "Black Dragon Collapserpent",
             "Cyber-Stein",
             "Danger!? Jackalope?",
             "Danger!? Tsuchinoko?",
             "Dark Grepher",
+            "Destrudo The Lost Dragon'S Frisson",
             "Dinomight Knight, The True Dracofighter",
             "Dinowrestler Pankratops",
-            "Eva",
             "Exodia The Forbidden One",
+            "Fairy Tail - Snow",
             "Genex Ally Birdman",
             "Infernity Archfiend",
+            "Lunalight Tiger",
             "Miscellaneousaurus",
             "Morphing Jar",
             "Night Assailant",
             "Phantom Skyblaster",
-            "Red-Eyes Darkness Metal Dragon",
             "Salamangreat Gazelle",
             "Servant Of Endymion",
             "Speedroid Terrortop",
@@ -148,10 +150,10 @@
             "Trishula, Dragon Of The Ice Barrier",
             "Beatrice, Lady Of The Eternal",
             "Daigusto Emeral",
+            "Lyrilusc - Recital Starling",
             "Salamangreat Miragestallio"
         ],
         "spells": [
-            "A Hero Lives",
             "Called By The Grave",
             "Card Destruction",
             "Card Of Demise",
@@ -171,14 +173,13 @@
             "Into The Void",
             "Magical Mid-Breaker Field",
             "Mind Control",
+            "Monster Gate",
             "Monster Reborn",
             "One Day Of Peace",
             "One For One",
-            "Raigeki",
+            "Pot Of Desires",
             "Reasoning",
             "Reinforcement Of The Army",
-            "Salamangreat Circle",
-            "Scapegoat",
             "Sekka'S Light",
             "Set Rotation",
             "Sky Striker Mecha - Hornet Drones",
@@ -191,31 +192,38 @@
             "Upstart Goblin"
         ],
         "traps": [
-            "Imperial Order",
             "Macro Cosmos",
             "Magical Explosion",
             "Metaverse",
             "Red Reboot",
-            "Skill Drain",
             "Wall Of Revealing Light"
         ]
     },
     "semi-limited": {
         "monsters": [
-            "Danger! Nessie!",
-            "Destiny Hero - Malicious",
-            "Performapal Skullcrobat Joker"
+            "Destiny Hero - Malicious"
         ],
         "spells": [
-            "Emergency Teleport"
+            "A Hero Lives",
+            "Fusion Destiny",
+            "Nadir Servant",
+            "Salamangreat Circle",
+            "Scapegoat"
         ],
         "traps": []
     },
     "no longer on list": {
         "monsters": [
-            "Double Iris Magician"
+            "Danger! Nessie!",
+            "Performapal Skullcrobat Joker",
+            "Red-Eyes Darkness Metal Dragon"
         ],
-        "spells": [],
-        "traps": []
+        "spells": [
+            "Emergency Teleport",
+            "Raigeki"
+        ],
+        "traps": [
+            "Skill Drain"
+        ]
     }
 }
