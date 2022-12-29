@@ -9,7 +9,7 @@ CONFIG = dotenv_values(get_full_path(__file__, ".env"))
 class BanlistScraper(object):
     def __init__(self):
         response = requests.get(CONFIG["URL"])
-        self.soup = BeautifulSoup(response.content, features="html5lib")
+        self.soup = BeautifulSoup(response.content, features="lxml")
     
     def get_update_text(self):
         """Scrape the text containing the date of the last banlist update.
