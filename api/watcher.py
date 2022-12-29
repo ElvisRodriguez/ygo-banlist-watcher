@@ -48,5 +48,4 @@ if __name__ == "__main__":
             print("Banlist data Saved!")
             break
         else:
-            print(f"No updates detected. Sleeping for {SECONDS} seconds")
-        time.sleep(SECONDS)
+            print(f"No updates detected")
